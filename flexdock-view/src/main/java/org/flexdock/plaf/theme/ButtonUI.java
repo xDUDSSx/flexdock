@@ -19,26 +19,20 @@
  */
 package org.flexdock.plaf.theme;
 
-import java.awt.Container;
-import java.awt.Graphics;
-import java.awt.event.FocusEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-
-import javax.swing.AbstractButton;
-import javax.swing.Action;
-import javax.swing.ButtonModel;
-import javax.swing.Icon;
-import javax.swing.JComponent;
-import javax.swing.border.Border;
-import javax.swing.plaf.basic.BasicButtonListener;
-import javax.swing.plaf.basic.BasicButtonUI;
-
 import org.flexdock.plaf.IFlexViewComponentUI;
 import org.flexdock.plaf.PropertySet;
 import org.flexdock.plaf.icons.IconResource;
 import org.flexdock.view.Button;
 import org.flexdock.view.Titlebar;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.plaf.basic.BasicButtonListener;
+import javax.swing.plaf.basic.BasicButtonUI;
+import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 /**
  * @author Christopher Butler

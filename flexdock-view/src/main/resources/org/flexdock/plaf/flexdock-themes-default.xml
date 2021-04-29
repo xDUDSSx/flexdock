@@ -19,6 +19,8 @@
 	<plaf name="com.jgoodies.looks.plastic.Plastic3DLookAndFeel" ref="eclipse2"/>
 	<plaf name="com.jgoodies.looks.plastic.PlasticXPLookAndFeel" ref="eclipse2"/>
 
+	<plaf name="com.formdev.flatlaf.FlatLaf" ref="flat"/>
+
 	<!-- Create a set of resource handlers -->
 	<handler name="color" value="org.flexdock.plaf.resources.ColorResourceHandler" />
 	<handler name="font" value="org.flexdock.plaf.resources.FontResourceHandler" />
@@ -95,6 +97,43 @@
 			<property name="tooltip.selected" value="Pin" handler="string" />
 		</icon-resource>
 	</theme>
+
+	<!-- Begin Flat -->
+	<theme name="flat" description="flat" view-ui="flat">
+		<view-ui name="flat">
+			<property name="titlebar-ui" value="flat"/>
+			<property name="button-ui" value="flat"/>
+		</view-ui>
+
+		<!-- List the various titlebars that are available -->
+		<titlebar-ui name="flat" extends="default">
+			<property name="classname" value="org.flexdock.plaf.theme.flat.FlatTitlebarUI" />
+			<property name="icon-map" value="flat" />
+			<property name="icon.insets" value="0,0,0,4" handler="insets"/>
+			<property name="default.height" value="28"/>
+		</titlebar-ui>
+
+		<button-ui name="flat">
+			<property name="classname" value="org.flexdock.plaf.theme.flat.FlatDockButtonUI" />
+		</button-ui>
+
+		<icon-map name="flat">
+			<property name="close" value="gradient.close" />
+			<property name="pin" value="gradient.pin" />
+		</icon-map>
+
+		<icon-resource name="default.close">
+			<property name="action" value="org.flexdock.view.actions.DefaultCloseAction" handler="action" />
+			<property name="tooltip" value="Close" handler="string" />
+		</icon-resource>
+
+		<icon-resource name="default.pin">
+			<property name="action" value="org.flexdock.view.actions.DefaultPinAction" handler="action" />
+			<property name="tooltip" value="Unpin" handler="string" />
+			<property name="tooltip.selected" value="Pin" handler="string" />
+		</icon-resource>
+	</theme>
+	<!-- End Flat -->
 
 	<!-- Begin Windows Classic -->
 	<theme name="win32" description="Windows Classic" view-ui="win32">

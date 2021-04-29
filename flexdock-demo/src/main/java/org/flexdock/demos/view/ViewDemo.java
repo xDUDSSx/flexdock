@@ -19,24 +19,19 @@
  */
 package org.flexdock.demos.view;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
-
 import org.flexdock.demos.util.DemoUtility;
 import org.flexdock.demos.util.VSNetStartPage;
 import org.flexdock.docking.DockingConstants;
 import org.flexdock.docking.DockingManager;
+import org.flexdock.docking.drag.effects.EffectsManager;
+import org.flexdock.docking.drag.preview.AlphaPreview;
 import org.flexdock.util.SwingUtility;
 import org.flexdock.view.View;
 import org.flexdock.view.Viewport;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 
 /**
  * @author Christopher Butler
@@ -44,9 +39,9 @@ import org.flexdock.view.Viewport;
 public class ViewDemo extends JFrame implements DockingConstants {
 
     public static void main(String[] args) {
-        SwingUtility.setPlaf("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        /*SwingUtility.setPlaf("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 //                SwingUtility.setPlaf("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
-//                SwingUtility.setPlaf("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+//                SwingUtility.setPlaf("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");*/
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -58,6 +53,7 @@ public class ViewDemo extends JFrame implements DockingConstants {
     private static void startup() {
         // turn on floating support
         DockingManager.setFloatingEnabled(true);
+        EffectsManager.setPreview(new AlphaPreview());
 
         JFrame f = new ViewDemo();
         f.setSize(800, 600);
@@ -100,7 +96,7 @@ public class ViewDemo extends JFrame implements DockingConstants {
 
         JPanel p = new JPanel();
         //                p.setBackground(Color.WHITE);
-        p.setBorder(new LineBorder(Color.GRAY, 1));
+        //p.setBorder(new LineBorder(Color.GRAY, 1));
 
         JTextField t = new JTextField(text);
         t.setPreferredSize(new Dimension(100, 20));

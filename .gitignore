@@ -6,3 +6,48 @@
 /flexdock-perspective/target/
 /flexdock-dockbar/target/
 flexdock-demo/dependency-reduced-pom.xml
+*.log
+*.gz
+
+# Gradle
+.gradle
+/build/
+/bin/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# Binaries
+*.class
+
+# Maven 
+target/
+
+# IntelliJ project files 
+*.iml
+*.iws
+*.ipr
+.idea/
+
+# eclipse project file
+.settings/
+.classpath
+.project
+
+# NetBeans specific
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# OS
+.DS_Store
+
+# Misc
+*.swp
+release.properties
+pom.xml.releaseBackup
+pom.xml.tag

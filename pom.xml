@@ -41,7 +41,7 @@
     </licenses>
 
     <properties>
-        <javaVersion>1.6</javaVersion>
+        <javaVersion>1.8</javaVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -50,6 +50,21 @@
             <groupId>net.sf.squirrel-sql.thirdparty-non-maven</groupId>
             <artifactId>skinlf</artifactId>
             <version>6.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf-extras</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>svgSalamander</artifactId>
+            <version>1.1.2.4</version>
         </dependency>
     </dependencies>
 

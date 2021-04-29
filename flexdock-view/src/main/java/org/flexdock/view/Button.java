@@ -19,13 +19,10 @@
  */
 package org.flexdock.view;
 
-import javax.swing.Action;
-import javax.swing.ButtonModel;
-import javax.swing.JToggleButton;
-import javax.swing.SwingUtilities;
-
 import org.flexdock.plaf.PlafManager;
 import org.flexdock.view.model.ViewButtonModel;
+
+import javax.swing.*;
 
 /**
  * @author Christopher Butler

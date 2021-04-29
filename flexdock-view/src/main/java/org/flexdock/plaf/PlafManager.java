@@ -19,15 +19,6 @@
  */
 package org.flexdock.plaf;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.util.Hashtable;
-import java.util.Properties;
-
-import javax.swing.JComponent;
-import javax.swing.UIManager;
-import javax.swing.plaf.ComponentUI;
-
 import org.flexdock.plaf.mappings.PlafMappingFactory;
 import org.flexdock.plaf.theme.Theme;
 import org.flexdock.plaf.theme.UIFactory;
@@ -35,6 +26,13 @@ import org.flexdock.util.RootWindow;
 import org.flexdock.view.Button;
 import org.flexdock.view.Titlebar;
 import org.flexdock.view.View;
+
+import javax.swing.*;
+import javax.swing.plaf.ComponentUI;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Hashtable;
+import java.util.Properties;
 
 /**
  * @author Christopher Butler

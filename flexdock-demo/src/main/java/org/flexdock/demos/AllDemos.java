@@ -19,22 +19,21 @@
  */
 package org.flexdock.demos;
 
-import java.awt.GridLayout;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.extras.FlatInspector;
+import com.formdev.flatlaf.extras.FlatUIDefaultsInspector;
+import org.flexdock.demos.util.DemoUtility;
+import org.flexdock.plaf.PlafManager;
+import org.flexdock.util.SwingUtility;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-
-
-
-import org.flexdock.demos.util.DemoUtility;
-import org.flexdock.util.SwingUtility;
 
 /**
  * Generic launcher for all demos.
@@ -107,6 +106,13 @@ public class AllDemos extends JFrame {
 
     public static void main(String[] args) {
         try {
+            FlatDarkLaf.install();
+
+            FlatInspector.install("ctrl shift X");
+            FlatUIDefaultsInspector.install("ctrl shift C");
+
+            PlafManager.setPreferredTheme("flat");
+
             final AllDemos a = new AllDemos();
             a.setDefaultCloseOperation(AllDemos.EXIT_ON_CLOSE);
             DemoUtility.setDemoDisableExitOnClose();

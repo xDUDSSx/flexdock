@@ -19,24 +19,6 @@
  */
 package org.flexdock.plaf.theme;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Insets;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-
-import javax.swing.Action;
-import javax.swing.Icon;
-import javax.swing.JComponent;
-import javax.swing.border.Border;
-import javax.swing.plaf.FontUIResource;
-import javax.swing.plaf.UIResource;
-
 import org.flexdock.plaf.FlexViewComponentUI;
 import org.flexdock.plaf.icons.IconMap;
 import org.flexdock.plaf.icons.IconResource;
@@ -45,6 +27,12 @@ import org.flexdock.plaf.resources.paint.Painter;
 import org.flexdock.view.Button;
 import org.flexdock.view.Titlebar;
 import org.flexdock.view.View;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.plaf.UIResource;
+import java.awt.*;
 
 /**
  * @author Christopher Butler
