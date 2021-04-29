@@ -32,8 +32,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Generic launcher for all demos.
@@ -43,24 +43,25 @@ import java.util.TreeMap;
 public class AllDemos extends JFrame {
 
     private static final String[] DEMO_CLASS_NAMES = new String[] {
+        "org.flexdock.demos.view.ViewDemo",
+        "org.flexdock.demos.raw.SimpleDemo",
+        "org.flexdock.demos.raw.SplitPaneDemo",
         "org.flexdock.demos.maximizing.MaximizationDemo",
         "org.flexdock.demos.perspective.PerspectivesDemo",
-        "org.flexdock.demos.perspective.XMLPerspectivesDemo",
         "org.flexdock.demos.raw.adapter.AdapterDemo",
         "org.flexdock.demos.raw.border.BorderDemo",
         "org.flexdock.demos.raw.CompoundDemo",
+        "org.flexdock.demos.perspective.XMLPerspectivesDemo",
         "org.flexdock.demos.raw.elegant.ElegantDemo",
         "org.flexdock.demos.raw.jmf.JMFDemo",
         "org.flexdock.demos.raw.SimpleDemo",
-        "org.flexdock.demos.raw.SplitPaneDemo",
         "org.flexdock.demos.raw.TabbedPaneDemo",
-        "org.flexdock.demos.view.ViewDemo",
     };
 
     public AllDemos() {
         super("FlexDock Demos");
 
-        TreeMap sortedClassNames = new TreeMap();
+        Map sortedClassNames = new LinkedHashMap();
         for (int i = 0; i < DEMO_CLASS_NAMES.length; i++) {
             String fullClassName = DEMO_CLASS_NAMES[i];
             String justClassName = fullClassName.substring(fullClassName
