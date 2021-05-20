@@ -23,8 +23,8 @@ import org.flexdock.plaf.mappings.PlafMappingFactory;
 import org.flexdock.plaf.theme.Theme;
 import org.flexdock.plaf.theme.UIFactory;
 import org.flexdock.util.RootWindow;
-import org.flexdock.view.Button;
-import org.flexdock.view.Titlebar;
+import org.flexdock.view.components.Button;
+import org.flexdock.view.components.Titlebar;
 import org.flexdock.view.View;
 
 import javax.swing.*;

@@ -19,18 +19,18 @@
  */
 package org.flexdock.docking.props;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-import java.util.Map;
-
-import javax.swing.Icon;
-
 import org.flexdock.docking.Dockable;
 import org.flexdock.docking.DockingConstants;
 import org.flexdock.util.TypedHashtable;
 import org.flexdock.util.Utilities;
 
+import javax.swing.*;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.util.Map;
+
 /**
+ * Basic implementation of the {@link DockablePropertySet}.
  * @author Christopher Butler
  */
 @SuppressWarnings(value = { "serial" })
@@ -115,20 +115,6 @@ public class BasicDockablePropertySet extends TypedHashtable implements Dockable
         changeSupport = new PropertyChangeSupport(changeSrc);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public Icon getDockbarIcon() {
         return (Icon)get(DOCKBAR_ICON);
@@ -187,17 +173,6 @@ public class BasicDockablePropertySet extends TypedHashtable implements Dockable
     public Float getPreviewSize() {
         return getFloat(PREVIEW_SIZE);
     }
-
-
-
-
-
-
-
-
-
-
-
 
     @Override
     public void setDockbarIcon(Icon icon) {

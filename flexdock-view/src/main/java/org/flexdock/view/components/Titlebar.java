@@ -17,25 +17,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package org.flexdock.view;
+package org.flexdock.view.components;
 
-import java.awt.Component;
+import org.flexdock.plaf.PlafManager;
+import org.flexdock.plaf.theme.TitlebarUI;
+import org.flexdock.view.View;
+import org.flexdock.view.actions.ViewAction;
+import org.flexdock.view.model.ViewButtonModel;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-
-import javax.swing.AbstractButton;
-import javax.swing.Action;
-import javax.swing.ButtonModel;
-import javax.swing.Icon;
-import javax.swing.JComponent;
-import javax.swing.SwingUtilities;
-
-import org.flexdock.plaf.PlafManager;
-import org.flexdock.plaf.theme.TitlebarUI;
-import org.flexdock.view.actions.ViewAction;
-import org.flexdock.view.model.ViewButtonModel;
 
 /**
  * @author Christopher Butler
@@ -214,7 +209,7 @@ public class Titlebar extends JComponent {
         updateButtonModels();
     }
 
-    protected synchronized void removeAllActions() {
+    public synchronized void removeAllActions() {
         if (actionList == null) {
             return;
         }
@@ -250,7 +245,7 @@ public class Titlebar extends JComponent {
         return parentView == null ? false : parentView.isActive();
     }
 
-    void setView(View view) {
+    public void setView(View view) {
         setParentView(view);
     }
 

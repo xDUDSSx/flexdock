@@ -19,33 +19,10 @@
  */
 package org.flexdock.dockbar;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Cursor;
-import java.awt.EventQueue;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Window;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.lang.ref.WeakReference;
-import java.lang.reflect.Constructor;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.WeakHashMap;
-
-import javax.swing.JLayeredPane;
-import javax.swing.SwingUtilities;
-
 import org.flexdock.dockbar.activation.ActivationQueue;
 import org.flexdock.dockbar.activation.ActiveDockableHandler;
 import org.flexdock.dockbar.activation.Animation;
-import org.flexdock.dockbar.event.ActivationListener;
-import org.flexdock.dockbar.event.DockablePropertyChangeHandler;
-import org.flexdock.dockbar.event.DockbarEvent;
-import org.flexdock.dockbar.event.DockbarEventHandler;
-import org.flexdock.dockbar.event.DockbarListener;
-import org.flexdock.dockbar.event.DockbarTracker;
+import org.flexdock.dockbar.event.*;
 import org.flexdock.dockbar.layout.DockbarLayout;
 import org.flexdock.docking.Dockable;
 import org.flexdock.docking.DockingManager;
@@ -58,6 +35,16 @@ import org.flexdock.event.EventManager;
 import org.flexdock.perspective.RestorationManager;
 import org.flexdock.util.RootWindow;
 import org.flexdock.util.Utilities;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Constructor;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.WeakHashMap;
 
 /**
  * @author Christopher Butler
@@ -274,12 +261,6 @@ public class DockbarManager {
         return false;
     }
 
-
-
-
-
-
-
     public Dockbar getBottomBar() {
         return bottomBar;
     }
@@ -295,10 +276,6 @@ public class DockbarManager {
     public ViewPane getViewPane() {
         return viewPane;
     }
-
-
-
-
 
     public void revalidate() {
         EventQueue.invokeLater(new Runnable() {
@@ -316,16 +293,11 @@ public class DockbarManager {
         viewPane.revalidate();
     }
 
-
-
     private void toggleDockbars() {
         leftBar.setVisible(leftBar.getComponentCount()!=0);
         rightBar.setVisible(rightBar.getComponentCount()!=0);
         bottomBar.setVisible(bottomBar.getComponentCount()!=0);
     }
-
-
-
 
     private int findDockbarEdge(Dockable dockable) {
         RootWindow window = RootWindow.getRootContainer(dockable.getComponent());
@@ -609,10 +581,21 @@ public class DockbarManager {
 
         // if nothing has changed, then we're done
         if(changed) {
-            viewPane.setLocked(false);
+            restore(dockable);
+
+            /*viewPane.setLocked(false);
             setActiveEdge(newEdge);
             setActiveDockableId(newDockableId);
-            startAnimation(oldDockable, dockable, newDockableId, newEdge);
+
+            viewPane.setPrefSize(ViewPane.UNSPECIFIED_PREFERRED_SIZE);
+            viewPane.updateOrientation();
+            viewPane.updateContents();
+            revalidate();*/
+
+            // dispatch event notification
+            dispatchEvent(oldDockable, dockable);
+
+            //startAnimation(oldDockable, dockable, newDockableId, newEdge);
         }
     }
 

@@ -22,8 +22,8 @@ package org.flexdock.plaf.theme;
 import org.flexdock.plaf.IFlexViewComponentUI;
 import org.flexdock.plaf.PropertySet;
 import org.flexdock.plaf.icons.IconResource;
-import org.flexdock.view.Button;
-import org.flexdock.view.Titlebar;
+import org.flexdock.view.components.Button;
+import org.flexdock.view.components.Titlebar;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -109,9 +109,6 @@ public class ButtonUI extends BasicButtonUI implements IFlexViewComponentUI {
     protected Border getDefaultBorder(AbstractButton button, boolean active) {
         return active? borderActive: borderDefault;
     }
-
-
-
 
     protected void paintIcon(Graphics g, AbstractButton b) {
         Icon icon = getIcon(b);

@@ -19,15 +19,14 @@
  */
 package org.flexdock.view.actions;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.ButtonModel;
-
 import org.flexdock.docking.DockingManager;
 import org.flexdock.docking.state.DockingState;
-import org.flexdock.view.Button;
+import org.flexdock.view.components.Button;
 import org.flexdock.view.View;
 import org.flexdock.view.model.ViewButtonModel;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 /**
  * @author Christopher Butler

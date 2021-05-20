@@ -28,8 +28,8 @@ import java.awt.geom.Rectangle2D;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import org.flexdock.plaf.theme.TitlebarUI;
-import org.flexdock.view.Button;
-import org.flexdock.view.Titlebar;
+import org.flexdock.view.components.Button;
+import org.flexdock.view.components.Titlebar;
 
 /**
  * @author Claudio Romano

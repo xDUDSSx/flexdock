@@ -19,22 +19,11 @@
  */
 package org.flexdock.plaf;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-
-import javax.swing.Action;
-import javax.swing.Icon;
+import javax.swing.*;
 import javax.swing.border.Border;
-
-
-
+import java.awt.*;
+import java.util.List;
+import java.util.*;
 
 /**
  * @author Christopher Butler

@@ -23,14 +23,11 @@ import org.flexdock.demos.util.DemoUtility;
 import org.flexdock.demos.util.VSNetStartPage;
 import org.flexdock.docking.DockingConstants;
 import org.flexdock.docking.DockingManager;
-import org.flexdock.docking.drag.effects.EffectsManager;
-import org.flexdock.docking.drag.preview.AlphaPreview;
 import org.flexdock.util.SwingUtility;
 import org.flexdock.view.View;
 import org.flexdock.view.Viewport;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 /**
@@ -53,7 +50,7 @@ public class ViewDemo extends JFrame implements DockingConstants {
     private static void startup() {
         // turn on floating support
         DockingManager.setFloatingEnabled(true);
-        EffectsManager.setPreview(new AlphaPreview());
+        //EffectsManager.setPreview(new AlphaPreview());
 
         JFrame f = new ViewDemo();
         f.setSize(800, 600);
@@ -69,7 +66,7 @@ public class ViewDemo extends JFrame implements DockingConstants {
 
     private JPanel createContentPane() {
         JPanel p = new JPanel(new BorderLayout(0, 0));
-        p.setBorder(new EmptyBorder(5, 5, 5, 5));
+        //p.setBorder(new EmptyBorder(5, 5, 5, 5));
 
         Viewport viewport = new Viewport();
         p.add(viewport, BorderLayout.CENTER);
@@ -92,6 +89,7 @@ public class ViewDemo extends JFrame implements DockingConstants {
     private View createView(String id, String text) {
         View view = new View(id, text);
         view.addAction(CLOSE_ACTION);
+        view.addAction(MAXIMIZE_ACTION);
         view.addAction(PIN_ACTION);
 
         JPanel p = new JPanel();
@@ -103,6 +101,10 @@ public class ViewDemo extends JFrame implements DockingConstants {
         p.add(t);
 
         view.setContentPane(p);
+
+       //view.setTerritoryBlocked(CENTER_REGION, true);
+        //view.setTitlebar(null);
+
         return view;
     }
 
@@ -110,7 +112,7 @@ public class ViewDemo extends JFrame implements DockingConstants {
         String id = "startPage";
         View view = new View(id, null, null);
         view.setTerritoryBlocked(CENTER_REGION, true);
-        view.setTitlebar(null);
+        //view.setTitlebar(null);
         view.setContentPane(new VSNetStartPage());
         return view;
     }

@@ -79,6 +79,12 @@ public interface DockingConstants {
     String CLOSE_ACTION = "close";
 
     /**
+     * A constant represnting a "maximize" action. Such actions are added to title
+     * bars to enable the maximize effect.
+     */
+    String MAXIMIZE_ACTION = "maximize";
+
+    /**
      * Box-orientation constant used to specify the top of a box.
      *
      * @see SwingConstants#TOP

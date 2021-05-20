@@ -19,8 +19,11 @@
  */
 package org.flexdock.view.actions;
 
+/**
+ * Note: Seems unused
+ * TODO: find out why
+ */
 public class ActionFactory {
-
     public static DefaultCloseAction createCloseAction() {
         return new DefaultCloseAction();
     }
@@ -29,8 +32,11 @@ public class ActionFactory {
         return new DefaultDisplayAction();
     }
 
+    public static DefaultMaximizeAction createMaximizeAction() {
+        return new DefaultMaximizeAction();
+    }
+
     public static DefaultPinAction createPinAction() {
         return new DefaultPinAction();
     }
-
 }

@@ -19,19 +19,17 @@
  */
 package org.flexdock.view.actions;
 
-import java.awt.event.ActionEvent;
-
 import org.flexdock.docking.DockingManager;
 import org.flexdock.view.View;
+
+import java.awt.event.ActionEvent;
 
 /**
  * @author Christopher Butler
  */
 public class DefaultCloseAction extends ViewAction {
 
-    public DefaultCloseAction() {
-
-    }
+    public DefaultCloseAction() {}
 
     @Override
     public void actionPerformed(View view, ActionEvent evt) {

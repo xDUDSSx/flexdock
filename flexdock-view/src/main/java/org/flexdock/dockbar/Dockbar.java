@@ -19,17 +19,15 @@
  */
 package org.flexdock.dockbar;
 
-import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import javax.swing.BoxLayout;
-import javax.swing.JPanel;
-import javax.swing.border.Border;
-
 import org.flexdock.docking.Dockable;
 import org.flexdock.docking.state.MinimizationManager;
 import org.flexdock.plaf.common.border.SlideoutBorder;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /**
@@ -140,6 +138,11 @@ public class Dockbar extends JPanel {
         return label.getPreferredSize();
     }
 
+    /**
+     * Expands the dockable from the dockbar.
+     * @param dockableId Id of the dockable.
+     * @param lock Whether the dockable should get locked.
+     */
     void activate(String dockableId, boolean lock) {
         if(manager!=null) {
             manager.setActiveDockable(dockableId);

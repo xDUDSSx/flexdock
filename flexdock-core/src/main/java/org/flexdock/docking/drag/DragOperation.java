@@ -19,19 +19,15 @@
  */
 package org.flexdock.docking.drag;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.MouseEvent;
-import java.util.EventListener;
-
-import javax.swing.SwingUtilities;
-
 import org.flexdock.docking.Dockable;
 import org.flexdock.docking.DockingConstants;
 import org.flexdock.docking.DockingManager;
 import org.flexdock.docking.DockingPort;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.util.EventListener;
 
 public class DragOperation implements DockingConstants {
     public static final String DRAG_IMAGE = "DragOperation.DRAG_IMAGE";
@@ -91,8 +87,13 @@ public class DragOperation implements DockingConstants {
         if(evtPoint==null) {
             return null;
         }
-
-        Point dockableLoc = dockable.getLocationOnScreen();
+        //TODO: Added try catch, add logging or solve otherwise. Happens to stacked tabbed panes.
+        Point dockableLoc;
+        try {
+            dockableLoc = dockable.getLocationOnScreen();
+        } catch (IllegalComponentStateException ex) {
+            dockableLoc = new Point(0, 0);
+        }
         SwingUtilities.convertPointToScreen(evtPoint, dragSource);
         Point offset = new Point();
         offset.x = dockableLoc.x - evtPoint.x;

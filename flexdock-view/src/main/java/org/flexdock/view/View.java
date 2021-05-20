@@ -19,34 +19,7 @@
  */
 package org.flexdock.view;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Insets;
-import java.awt.LayoutManager;
-import java.awt.LayoutManager2;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.HierarchyEvent;
-import java.awt.event.HierarchyListener;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.swing.AbstractAction;
-import javax.swing.AbstractButton;
-import javax.swing.Action;
-import javax.swing.Icon;
-import javax.swing.JComponent;
-import javax.swing.JPanel;
-
-import org.flexdock.docking.Dockable;
-import org.flexdock.docking.DockingConstants;
-import org.flexdock.docking.DockingManager;
-import org.flexdock.docking.DockingPort;
-import org.flexdock.docking.DockingStrategy;
+import org.flexdock.docking.*;
 import org.flexdock.docking.defaults.DefaultDockingStrategy;
 import org.flexdock.docking.event.DockingEvent;
 import org.flexdock.docking.event.DockingListener;
@@ -57,6 +30,20 @@ import org.flexdock.plaf.theme.ViewUI;
 import org.flexdock.util.DockingUtility;
 import org.flexdock.util.ResourceManager;
 import org.flexdock.util.SwingUtility;
+import org.flexdock.view.components.Button;
+import org.flexdock.view.components.Titlebar;
+import org.flexdock.view.props.ViewProps;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.HierarchyEvent;
+import java.awt.event.HierarchyListener;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * The {@code View} class is slightly incompatible with {@code JComponent}.
@@ -220,7 +207,7 @@ public class View extends JComponent implements Dockable, DockingConstants {
 
     static final DockingStrategy VIEW_DOCKING_STRATEGY = createDockingStrategy();
 
-    private String persistentId;
+    protected String persistentId;
 
     protected Titlebar titlepane;
 
@@ -235,7 +222,7 @@ public class View extends JComponent implements Dockable, DockingConstants {
 
     protected HashSet frameDragSources;
 
-    private transient HashSet blockedActions;
+    protected transient HashSet blockedActions;
 
     static {
         DockingManager.setDockingStrategy(View.class, VIEW_DOCKING_STRATEGY);
@@ -289,20 +276,20 @@ public class View extends JComponent implements Dockable, DockingConstants {
         DockingManager.registerDockable((Dockable) this);
 
         getActionMap().put(ACTION_TOGGLE_NEXT, new AbstractAction() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    SwingUtility.toggleFocus(+1);
-                }
-            });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtility.toggleFocus(+1);
+            }
+        });
         getActionMap().put(ACTION_TOGGLE_PREVIOUS, new AbstractAction() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    SwingUtility.toggleFocus(-1);
-                }
-            });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtility.toggleFocus(-1);
+            }
+        });
     }
 
-    private static DockingStrategy createDockingStrategy() {
+    protected static DockingStrategy createDockingStrategy() {
         return new DefaultDockingStrategy() {
             @Override
             protected DockingPort createDockingPortImpl(DockingPort base) {
@@ -530,10 +517,21 @@ public class View extends JComponent implements Dockable, DockingConstants {
         return persistentId;
     }
 
+    /**
+     * Checks whether a region is blocked.
+     * @param dockable
+     * @param region The region (From {@linkplain DockingConstants} CENTER_REGION, NORTH_REGION, SOUTH_REGION, EAST_REGION, WEST_REGION)
+     * @see #setTerritoryBlocked(String, boolean)
+     */
     public boolean isTerritoryBlocked(Dockable dockable, String region) {
         return getDockingProperties().isTerritoryBlocked(region).booleanValue();
     }
 
+    /**
+     * Sets a region in which other dockables cannot be docked.
+     * @param region The region (From {@linkplain DockingConstants} CENTER_REGION, NORTH_REGION, SOUTH_REGION, EAST_REGION, WEST_REGION)
+     * @param blocked Enable or disable blocking
+     */
     public void setTerritoryBlocked(String region, boolean blocked) {
         getDockingProperties().setTerritoryBlocked(region, blocked);
     }
@@ -653,14 +651,14 @@ public class View extends JComponent implements Dockable, DockingConstants {
     public void undockingStarted(DockingEvent evt) {
     }
 
-    private void clearButtonRollovers() {
+    protected void clearButtonRollovers() {
         if (titlepane == null) {
             return;
         }
 
         Component[] comps = titlepane.getComponents();
         for (int i = 0; i < comps.length; i++) {
-            Button button = comps[i] instanceof Button ? (Button) comps[i]
+            org.flexdock.view.components.Button button = comps[i] instanceof org.flexdock.view.components.Button ? (Button) comps[i]
                             : null;
             if (button != null) {
                 button.getModel().setRollover(false);
@@ -688,7 +686,7 @@ public class View extends JComponent implements Dockable, DockingConstants {
                : blockedActions.contains(actionName);
     }
 
-    private HashSet getBlockedActions() {
+    protected HashSet getBlockedActions() {
         if (blockedActions == null) {
             blockedActions = new HashSet(1);
         }

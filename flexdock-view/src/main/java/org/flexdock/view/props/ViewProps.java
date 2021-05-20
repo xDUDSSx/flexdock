@@ -17,13 +17,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package org.flexdock.view;
-
-import java.util.Map;
+package org.flexdock.view.props;
 
 import org.flexdock.docking.props.PropertyManager;
 import org.flexdock.docking.props.RootDockablePropertySet;
 import org.flexdock.docking.props.ScopedDockablePropertySet;
+import org.flexdock.view.View;
+
+import java.util.Map;
 
 /**
  * @author Christopher Butler

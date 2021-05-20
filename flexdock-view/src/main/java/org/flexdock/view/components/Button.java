@@ -17,9 +17,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package org.flexdock.view;
+package org.flexdock.view.components;
 
 import org.flexdock.plaf.PlafManager;
+import org.flexdock.view.View;
 import org.flexdock.view.model.ViewButtonModel;
 
 import javax.swing.*;

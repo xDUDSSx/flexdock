@@ -2,7 +2,7 @@ package org.flexdock.plaf.theme.flat;
 
 import com.formdev.flatlaf.ui.FlatUIUtils;
 import org.flexdock.plaf.theme.TitlebarUI;
-import org.flexdock.view.Titlebar;
+import org.flexdock.view.components.Titlebar;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -11,6 +11,17 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 
 public class FlatTitlebarUI extends TitlebarUI {
+    @Override
+    public Action getAction(String actionKey) {
+        return super.getAction(actionKey);
+    }
+
+    @Override
+    public void configureAction(Action action) {
+        //Action icons are configured in the FlatDockButtonUI
+        return;
+    }
+
     @Override
     public void paint(Graphics g, JComponent jc) {
         Titlebar titlebar = (Titlebar) jc;

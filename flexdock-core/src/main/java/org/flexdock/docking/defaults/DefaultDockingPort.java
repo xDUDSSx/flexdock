@@ -21,44 +21,7 @@
  */
 package org.flexdock.docking.defaults;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Graphics;
-import java.awt.Insets;
-import java.awt.LayoutManager;
-import java.awt.LayoutManager2;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
-import java.util.WeakHashMap;
-
-import javax.swing.Icon;
-import javax.swing.JComponent;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
-import javax.swing.JTabbedPane;
-import javax.swing.SwingUtilities;
-import javax.swing.Timer;
-import javax.swing.UIManager;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-
-import org.flexdock.docking.Dockable;
-import org.flexdock.docking.DockingConstants;
-import org.flexdock.docking.DockingManager;
-import org.flexdock.docking.DockingPort;
-import org.flexdock.docking.DockingStrategy;
-import org.flexdock.docking.RegionChecker;
+import org.flexdock.docking.*;
 import org.flexdock.docking.activation.ActiveDockableTracker;
 import org.flexdock.docking.event.DockingEvent;
 import org.flexdock.docking.event.DockingListener;
@@ -74,6 +37,17 @@ import org.flexdock.docking.state.tree.SplitNode;
 import org.flexdock.util.DockingUtility;
 import org.flexdock.util.LookAndFeelSettings;
 import org.flexdock.util.SwingUtility;
+
+import javax.swing.Timer;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * This is a {@code Container} that implements the {@code DockingPort}
@@ -1666,7 +1640,7 @@ public class DefaultDockingPort extends JPanel implements DockingPort,
             removeAll();
         }
 
-        dockedComponent = c;
+        dockedComponent = c == null ? maximizationReleaseInfo.getContent(): c;
         Component ret = super.add(dockedComponent);
 
         // calling doLayout here to properly set the component's size

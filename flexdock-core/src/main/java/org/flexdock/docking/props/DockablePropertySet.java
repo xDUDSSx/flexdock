@@ -19,9 +19,8 @@
  */
 package org.flexdock.docking.props;
 
+import javax.swing.*;
 import java.beans.PropertyChangeListener;
-
-import javax.swing.Icon;
 
 /**
  * @author Christopher Butler
@@ -55,8 +54,6 @@ public interface DockablePropertySet {
 
     public static final String ACTIVE = "Dockable.ACTIVE";
 
-
-
     public String getDockableDesc();
 
     public Boolean isDockingEnabled();
@@ -80,10 +77,6 @@ public interface DockablePropertySet {
     public String getDockingId();
 
     public Boolean isActive();
-
-
-
-
 
     public void setDockableDesc(String desc);
 

@@ -23,7 +23,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import org.flexdock.plaf.theme.TitlebarUI;
-import org.flexdock.view.Titlebar;
+import org.flexdock.view.components.Titlebar;
 
 import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 

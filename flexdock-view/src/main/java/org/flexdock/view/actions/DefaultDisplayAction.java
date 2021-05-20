@@ -19,21 +19,18 @@
  */
 package org.flexdock.view.actions;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.Action;
-
 import org.flexdock.docking.DockingManager;
 import org.flexdock.view.View;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 /**
  * @author Christopher Butler
  */
 public class DefaultDisplayAction extends ViewAction {
 
-    public DefaultDisplayAction() {
-
-    }
+    public DefaultDisplayAction() {}
 
     public DefaultDisplayAction(String viewId) {
         setViewId(viewId);

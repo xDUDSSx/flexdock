@@ -19,18 +19,17 @@
  */
 package org.flexdock.view;
 
-import java.awt.Component;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.swing.JTabbedPane;
-
 import org.flexdock.docking.Dockable;
 import org.flexdock.docking.DockingConstants;
 import org.flexdock.docking.DockingManager;
 import org.flexdock.docking.activation.ActiveDockableListener;
 import org.flexdock.docking.defaults.DefaultDockingPort;
 import org.flexdock.docking.defaults.StandardBorderManager;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Christopher Butler
@@ -103,6 +102,7 @@ public class Viewport extends DefaultDockingPort implements DockingConstants {
     @Override
     protected JTabbedPane createTabbedPane() {
         JTabbedPane pane = super.createTabbedPane();
+
         pane.addChangeListener(ActiveDockableListener.getInstance());
         return pane;
     }
@@ -115,6 +115,11 @@ public class Viewport extends DefaultDockingPort implements DockingConstants {
     public Set getViewset(int depth) {
         // return all views, including subviews up to the specified depth
         return getDockableSet(depth, 0, View.class);
+    }
+
+    @Override
+    public boolean isSingleTabAllowed() {
+        return false;
     }
 
     @Override

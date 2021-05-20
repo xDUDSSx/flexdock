@@ -24,8 +24,8 @@ import org.flexdock.plaf.icons.IconMap;
 import org.flexdock.plaf.icons.IconResource;
 import org.flexdock.plaf.icons.IconResourceFactory;
 import org.flexdock.plaf.resources.paint.Painter;
-import org.flexdock.view.Button;
-import org.flexdock.view.Titlebar;
+import org.flexdock.view.components.Button;
+import org.flexdock.view.components.Titlebar;
 import org.flexdock.view.View;
 
 import javax.swing.*;
@@ -232,6 +232,11 @@ public class TitlebarUI extends FlexViewComponentUI {
         }
     }
 
+    /**
+     * Lets the UI configure an existing Action.
+     * It is necessary to set the actions {@link FlexViewComponentUI#ICON_RESOURCE}.
+     * @param action
+     */
     public void configureAction(Action action) {
         if (action == null) {
             return;
@@ -379,6 +384,11 @@ public class TitlebarUI extends FlexViewComponentUI {
         return defaultIcons == null ? null : defaultIcons.getIcons(key);
     }
 
+    /**
+     * Creates a new action from an action key.
+     * @param actionKey
+     * @return
+     */
     public Action getAction(String actionKey) {
         IconResource resource = getIcons(actionKey);
         Action action = resource==null? null: resource.getAction();

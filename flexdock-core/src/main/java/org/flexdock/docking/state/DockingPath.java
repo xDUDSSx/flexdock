@@ -19,23 +19,6 @@
  */
 package org.flexdock.docking.state;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.EventQueue;
-import java.awt.Window;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
-import javax.swing.JSplitPane;
-import javax.swing.JTabbedPane;
-import javax.swing.SwingUtilities;
-
-
-
 import org.flexdock.docking.Dockable;
 import org.flexdock.docking.DockingConstants;
 import org.flexdock.docking.DockingManager;
@@ -44,6 +27,12 @@ import org.flexdock.docking.defaults.DockingSplitPane;
 import org.flexdock.docking.state.tree.SplitNode;
 import org.flexdock.util.DockingUtility;
 import org.flexdock.util.SwingUtility;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.Serializable;
+import java.util.List;
+import java.util.*;
 
 /**
  * @author Christopher Butler
@@ -317,7 +306,7 @@ public class DockingPath implements Cloneable, DockingConstants, Serializable {
         }
 
         if(current instanceof JTabbedPane) {
-            return dock(dockable, port, CENTER_REGION, null);
+            return dock(dockable, port, region, ctrlNode);
         }
 
         Dockable embedded = findDockable(current);
