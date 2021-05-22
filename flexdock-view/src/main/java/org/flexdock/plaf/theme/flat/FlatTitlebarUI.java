@@ -1,6 +1,7 @@
 package org.flexdock.plaf.theme.flat;
 
 import com.formdev.flatlaf.ui.FlatUIUtils;
+import org.flexdock.plaf.icons.IconResource;
 import org.flexdock.plaf.theme.TitlebarUI;
 import org.flexdock.view.components.Titlebar;
 
@@ -19,6 +20,16 @@ public class FlatTitlebarUI extends TitlebarUI {
     @Override
     public void configureAction(Action action) {
         //Action icons are configured in the FlatDockButtonUI
+
+        if (action == null) {
+            return;
+        }
+
+        IconResource icons = getIcons(action);
+        if (icons != null) {
+            action.putValue(ICON_RESOURCE, icons);
+        }
+
         return;
     }
 

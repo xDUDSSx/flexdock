@@ -9,10 +9,20 @@ public class FlexIcons {
     public static FlatSVGIcon minimizeIcon;
     public static FlatSVGIcon maximizeIcon;
 
+    public static FlatSVGIcon heartIcon;
+    public static FlatSVGIcon settingsIcon;
+    public static FlatSVGIcon helmetIcon;
+    public static FlatSVGIcon homeIcon;
+
     static {
         closeIcon = loadFlatSVGDockIcon("svg/close_notification.svg");
         minimizeIcon = loadFlatSVGDockIcon("svg/minimize_notification.svg");
         maximizeIcon = loadFlatSVGDockIcon("svg/maximize.svg");
+
+        heartIcon = loadFlatSVGDockIcon("svg/heart.svg");
+        settingsIcon = loadFlatSVGDockIcon("svg/settings.svg");
+        helmetIcon = loadFlatSVGDockIcon("svg/roman-helmet.svg");
+        homeIcon = loadFlatSVGDockIcon("svg/home.svg");
     }
 
     protected static FlatSVGIcon loadFlatSVGDockIcon(String path) {

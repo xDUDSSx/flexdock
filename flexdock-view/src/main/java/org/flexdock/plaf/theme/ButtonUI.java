@@ -22,6 +22,7 @@ package org.flexdock.plaf.theme;
 import org.flexdock.plaf.IFlexViewComponentUI;
 import org.flexdock.plaf.PropertySet;
 import org.flexdock.plaf.icons.IconResource;
+import org.flexdock.view.actions.DefaultMaximizeAction;
 import org.flexdock.view.components.Button;
 import org.flexdock.view.components.Titlebar;
 
@@ -355,26 +356,30 @@ public class ButtonUI extends BasicButtonUI implements IFlexViewComponentUI {
 
     private void updateTooltip(AbstractButton button) {
         Action action = button.getAction();
-        if(action==null) {
+        if (action instanceof DefaultMaximizeAction) {
+            int x = 5;
+        }
+        if (action == null) {
             return;
         }
 
-        String toolTip = (String)action.getValue(Action.SHORT_DESCRIPTION);
-        if(toolTip!=null) {
+        String toolTip = (String) action.getValue(Action.SHORT_DESCRIPTION);
+        if (toolTip != null) {
             return;
         }
 
-        IconResource resource = action==null? null: (IconResource)action.getValue(ICON_RESOURCE);
-        if(resource==null) {
+        IconResource resource = action == null ? null : (IconResource) action.getValue(ICON_RESOURCE);
+        if (resource == null) {
+            String s = button.getToolTipText();
             return;
         }
 
-        toolTip = button.isSelected()? resource.getTooltipSelected(): resource.getTooltip();
-        if(toolTip==null) {
+        toolTip = button.isSelected() ? resource.getTooltipSelected() : resource.getTooltip();
+        if (toolTip == null) {
             toolTip = resource.getTooltip();
         }
 
-        if(toolTip!=null) {
+        if (toolTip != null) {
             button.setToolTipText(toolTip);
         }
     }

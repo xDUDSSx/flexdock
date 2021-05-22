@@ -23,7 +23,6 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.extras.FlatInspector;
 import com.formdev.flatlaf.extras.FlatUIDefaultsInspector;
 import org.flexdock.demos.util.DemoUtility;
-import org.flexdock.plaf.PlafManager;
 import org.flexdock.util.SwingUtility;
 
 import javax.swing.*;
@@ -107,12 +106,12 @@ public class AllDemos extends JFrame {
 
     public static void main(String[] args) {
         try {
-            FlatDarkLaf.install();
+            FlatDarkLaf.setup();
 
             FlatInspector.install("ctrl shift X");
             FlatUIDefaultsInspector.install("ctrl shift C");
 
-            PlafManager.setPreferredTheme("flat");
+            //PlafManager.setPreferredTheme("flat");
 
             final AllDemos a = new AllDemos();
             a.setDefaultCloseOperation(AllDemos.EXIT_ON_CLOSE);

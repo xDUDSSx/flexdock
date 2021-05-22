@@ -20,6 +20,10 @@
 	<plaf name="com.jgoodies.looks.plastic.PlasticXPLookAndFeel" ref="eclipse2"/>
 
 	<plaf name="com.formdev.flatlaf.FlatLaf" ref="flat"/>
+	<plaf name="com.formdev.flatlaf.FlatLightLaf" ref="flat"/>
+	<plaf name="com.formdev.flatlaf.FlatDarkLaf" ref="flat"/>
+	<plaf name="com.formdev.flatlaf.FlatDarculaLaf" ref="flat"/>
+	<plaf name="com.formdev.flatlaf.FlatIntelliJLaf" ref="flat"/>
 
 	<!-- Create a set of resource handlers -->
 	<handler name="color" value="org.flexdock.plaf.resources.ColorResourceHandler" />

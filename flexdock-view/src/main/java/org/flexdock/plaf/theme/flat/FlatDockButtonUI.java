@@ -32,15 +32,15 @@ public class FlatDockButtonUI extends ButtonUI {
         super.paintIcon(g, b);
     }
 
+    /**
+     * Flat theme icons are loaded directly in code,
+     * as opposed to loading from IconResources themselves (and further from the theme xml)
+     */
     @Override
     protected Icon getActionIcon(AbstractButton button, boolean pressed, boolean active, boolean hover) {
         Action action = button.getAction();
 
-        boolean disabled = !button.isEnabled() || !button.getModel().isEnabled();
-        boolean selected = button.isSelected();
-
         Icon icon = null;
-
         switch ((String) action.getValue(Action.NAME)) {
             case DockingConstants.PIN_ACTION:
                 icon = FlexIcons.minimizeIcon;
@@ -53,59 +53,5 @@ public class FlatDockButtonUI extends ButtonUI {
         }
 
         return icon;
-
-        /*if(pressed && !disabled) {
-            Icon icon = selected? resource.getIconSelectedPressed(): null;
-            if(icon==null) {
-                icon = resource.getIconPressed();
-            }
-            return icon;
-        }
-
-        if(active) {
-            if(disabled) {
-                Icon icon = selected? resource.getIconSelectedActiveDisabled(): null;
-                if(icon==null) {
-                    icon = resource.getIconActiveDisabled();
-                }
-                return icon==null? resource.getIconActive(): icon;
-            }
-
-            if(hover) {
-                Icon icon = selected? resource.getIconSelectedActiveHover(): null;
-                if(icon==null) {
-                    icon = resource.getIconActiveHover();
-                }
-                return icon;
-            }
-
-            Icon icon = selected? resource.getIconSelectedActive(): null;
-            if(icon==null) {
-                icon = resource.getIconActive();
-            }
-            return icon;
-        }
-
-        if(disabled) {
-            Icon icon = selected? resource.getIconSelectedDisabled(): null;
-            if(icon==null) {
-                icon = resource.getIconDisabled();
-            }
-            return icon==null? resource.getIcon(): icon;
-        }
-
-        if(hover) {
-            Icon icon = selected? resource.getIconSelectedHover(): null;
-            if(icon==null) {
-                icon = resource.getIconHover();
-            }
-            return icon;
-        }
-
-        Icon icon = selected? resource.getIconSelected(): null;
-        if(icon==null) {
-            icon = resource.getIcon();
-        }
-        return icon;*/
     }
 }

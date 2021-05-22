@@ -19,19 +19,15 @@
  */
 package org.flexdock.plaf.mappings;
 
+import org.flexdock.plaf.Configurator;
+import org.flexdock.plaf.XMLConstants;
+import org.w3c.dom.Element;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-
-import javax.swing.LookAndFeel;
-import javax.swing.UIManager;
-
-
-
-import org.flexdock.plaf.Configurator;
-import org.flexdock.plaf.XMLConstants;
-import org.w3c.dom.Element;
 
 /**
  * @author Christopher Butler

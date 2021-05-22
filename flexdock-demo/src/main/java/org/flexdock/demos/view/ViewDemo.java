@@ -23,12 +23,14 @@ import org.flexdock.demos.util.DemoUtility;
 import org.flexdock.demos.util.VSNetStartPage;
 import org.flexdock.docking.DockingConstants;
 import org.flexdock.docking.DockingManager;
+import org.flexdock.plaf.icons.FlexIcons;
 import org.flexdock.util.SwingUtility;
 import org.flexdock.view.View;
 import org.flexdock.view.Viewport;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 /**
  * @author Christopher Butler
@@ -77,6 +79,11 @@ public class ViewDemo extends JFrame implements DockingConstants {
         View view3 = createView("class.view", "Class View");
         View view4 = createView("message.log", "Message Log");
 
+        view1.setIcon(FlexIcons.heartIcon);
+        view2.setIcon(FlexIcons.homeIcon);
+        view3.setIcon(FlexIcons.helmetIcon);
+        view4.setIcon(FlexIcons.settingsIcon);
+
         viewport.dock(startPage);
         startPage.dock(view1, WEST_REGION, .3f);
         startPage.dock(view2, SOUTH_REGION, .3f);
@@ -91,6 +98,15 @@ public class ViewDemo extends JFrame implements DockingConstants {
         view.addAction(CLOSE_ACTION);
         view.addAction(MAXIMIZE_ACTION);
         view.addAction(PIN_ACTION);
+
+        AbstractAction e = new AbstractAction("Reeee", FlexIcons.maximizeIcon) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("YAY IT WORKS");
+            }
+        };
+        e.putValue(Action.SHORT_DESCRIPTION, "Test tooltip");
+        view.addAction(e);
 
         JPanel p = new JPanel();
         //                p.setBackground(Color.WHITE);
@@ -110,7 +126,7 @@ public class ViewDemo extends JFrame implements DockingConstants {
 
     private View createStartPage() {
         String id = "startPage";
-        View view = new View(id, null, null);
+        View view = new View(id, "Welcome");
         view.setTerritoryBlocked(CENTER_REGION, true);
         //view.setTitlebar(null);
         view.setContentPane(new VSNetStartPage());
