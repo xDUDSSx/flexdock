@@ -2150,8 +2150,7 @@ public class DockingManager implements DockingConstants {
      */
     public static void setMinimized(Dockable dockable, boolean minimized) {
         Component cmp = dockable == null ? null : dockable.getComponent();
-        Window window = cmp == null ? null : SwingUtilities
-                        .getWindowAncestor(cmp);
+        Window window = cmp == null ? null : SwingUtilities.getWindowAncestor(cmp);
         setMinimized(dockable, minimized, window);
     }
 
@@ -2762,6 +2761,12 @@ public class DockingManager implements DockingConstants {
                 // maybe silently switch maximized dockables instead?
             }
             restoreFromMaximized(dockable, rootPort, state);
+
+            // Added because other dockables weren't getting repainted on maxmize restore.
+            if (rootPort instanceof Component) {
+                ((Component) rootPort).repaint();
+                ((Component) rootPort).revalidate();
+            }
         } else {
             maximize(dockable, rootPort);
         }
@@ -2794,11 +2799,6 @@ public class DockingManager implements DockingConstants {
         state.getOriginalPort().returnFromMaximization();
 
         MAXIMIZED_STATES_BY_ROOT_PORT.remove(rootPort);
-
-        if (rootPort instanceof Component) {
-            ((Component) rootPort).repaint();
-            ((Component) rootPort).revalidate();
-        }
     }
 
     private static MaximizedState getMaximizedState(DockingPort rootPort) {

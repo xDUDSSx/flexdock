@@ -581,21 +581,23 @@ public class DockbarManager {
 
         // if nothing has changed, then we're done
         if(changed) {
-            restore(dockable);
+            //restore(dockable);
 
-            /*viewPane.setLocked(false);
+            viewPane.setLocked(false);
             setActiveEdge(newEdge);
             setActiveDockableId(newDockableId);
 
+            /*
             viewPane.setPrefSize(ViewPane.UNSPECIFIED_PREFERRED_SIZE);
             viewPane.updateOrientation();
             viewPane.updateContents();
-            revalidate();*/
+            revalidate();
+            */
 
             // dispatch event notification
-            dispatchEvent(oldDockable, dockable);
+            //dispatchEvent(oldDockable, dockable);
 
-            //startAnimation(oldDockable, dockable, newDockableId, newEdge);
+            startAnimation(oldDockable, dockable, newDockableId, newEdge);
         }
     }
 

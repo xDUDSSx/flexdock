@@ -22,7 +22,6 @@ package org.flexdock.plaf.theme;
 import org.flexdock.plaf.IFlexViewComponentUI;
 import org.flexdock.plaf.PropertySet;
 import org.flexdock.plaf.icons.IconResource;
-import org.flexdock.view.actions.DefaultMaximizeAction;
 import org.flexdock.view.components.Button;
 import org.flexdock.view.components.Titlebar;
 
@@ -356,9 +355,6 @@ public class ButtonUI extends BasicButtonUI implements IFlexViewComponentUI {
 
     private void updateTooltip(AbstractButton button) {
         Action action = button.getAction();
-        if (action instanceof DefaultMaximizeAction) {
-            int x = 5;
-        }
         if (action == null) {
             return;
         }

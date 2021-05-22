@@ -19,10 +19,10 @@
  */
 package org.flexdock.docking.state;
 
-import java.awt.Component;
-
 import org.flexdock.docking.Dockable;
 import org.flexdock.docking.DockingConstants;
+
+import java.awt.*;
 
 /**
  * @author Christopher Butler
@@ -43,6 +43,11 @@ public interface MinimizationManager {
 
     int CENTER = DockingConstants.CENTER;
 
+    /**
+     * Removes the dockable from the manager.
+     * @param dockable The dockable to remove.
+     * @return True if the dockable was removed, false if it wasn't registered to the manager.
+     */
     boolean close(Dockable dockable);
 
     void preview(Dockable dockable, boolean locked);

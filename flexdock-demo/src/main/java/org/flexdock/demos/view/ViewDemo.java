@@ -31,6 +31,8 @@ import org.flexdock.view.Viewport;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author Christopher Butler
@@ -99,17 +101,17 @@ public class ViewDemo extends JFrame implements DockingConstants {
         view.addAction(MAXIMIZE_ACTION);
         view.addAction(PIN_ACTION);
 
-        AbstractAction e = new AbstractAction("Reeee", FlexIcons.maximizeIcon) {
+        AbstractAction e = new AbstractAction("CustomViewAction", FlexIcons.homeIcon) {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("YAY IT WORKS");
+                System.out.println("Custom flexdock view action executed at " + LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME) + "!");
             }
         };
-        e.putValue(Action.SHORT_DESCRIPTION, "Test tooltip");
+        e.putValue(Action.SHORT_DESCRIPTION, "Custom action tooltip");
         view.addAction(e);
 
         JPanel p = new JPanel();
-        //                p.setBackground(Color.WHITE);
+        //p.setBackground(Color.WHITE);
         //p.setBorder(new LineBorder(Color.GRAY, 1));
 
         JTextField t = new JTextField(text);
@@ -118,7 +120,7 @@ public class ViewDemo extends JFrame implements DockingConstants {
 
         view.setContentPane(p);
 
-       //view.setTerritoryBlocked(CENTER_REGION, true);
+        //view.setTerritoryBlocked(CENTER_REGION, true);
         //view.setTitlebar(null);
 
         return view;

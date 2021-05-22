@@ -1,7 +1,6 @@
 package org.flexdock.plaf.theme.flat;
 
 import com.formdev.flatlaf.ui.FlatUIUtils;
-import org.flexdock.plaf.icons.IconResource;
 import org.flexdock.plaf.theme.TitlebarUI;
 import org.flexdock.view.components.Titlebar;
 
@@ -12,27 +11,6 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 
 public class FlatTitlebarUI extends TitlebarUI {
-    @Override
-    public Action getAction(String actionKey) {
-        return super.getAction(actionKey);
-    }
-
-    @Override
-    public void configureAction(Action action) {
-        //Action icons are configured in the FlatDockButtonUI
-
-        if (action == null) {
-            return;
-        }
-
-        IconResource icons = getIcons(action);
-        if (icons != null) {
-            action.putValue(ICON_RESOURCE, icons);
-        }
-
-        return;
-    }
-
     @Override
     public void paint(Graphics g, JComponent jc) {
         Titlebar titlebar = (Titlebar) jc;
@@ -52,11 +30,6 @@ public class FlatTitlebarUI extends TitlebarUI {
         Rectangle paintArea = getPaintRect(titlebar);
         g.setColor(getBackgroundColor(titlebar.isActive()));
         g.fillRect(paintArea.x, paintArea.y, paintArea.width, paintArea.height);
-    }
-
-    @Override
-    protected void paintIcon(Graphics g, Titlebar titlebar) {
-        super.paintIcon(g, titlebar);
     }
 
     @Override
@@ -81,11 +54,6 @@ public class FlatTitlebarUI extends TitlebarUI {
         g.translate(paintRect.x, paintRect.y);
         FlatUIUtils.drawString(titlebar, g, titlebar.getText(), x, y);
         g.translate(-paintRect.x, -paintRect.y);
-    }
-
-    @Override
-    protected void paintBorder(Graphics g, Titlebar titlebar) {
-        super.paintBorder(g, titlebar);
     }
 
     @Override
